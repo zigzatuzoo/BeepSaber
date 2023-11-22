@@ -259,89 +259,119 @@ offset_top = 54.0
 offset_right = 867.0
 offset_bottom = 481.0
 
-[node name="VBox" type="VBoxContainer" parent="ScrollContainer"]
+[node name="TabContainer" type="TabContainer" parent="ScrollContainer"]
+layout_mode = 2
+current_tab = 1
+
+[node name="Game Settings" type="VBoxContainer" parent="ScrollContainer/TabContainer"]
+visible = false
+custom_minimum_size = Vector2(830, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="d_background" type="CheckButton" parent="ScrollContainer/VBox"]
+[node name="d_background" type="CheckButton" parent="ScrollContainer/TabContainer/Game Settings"]
 layout_mode = 2
 tooltip_text = "Low Performance impact*"
 theme = SubResource("3")
 text = "*Dynamic Background: "
 
-[node name="cut_blocks" type="CheckButton" parent="ScrollContainer/VBox"]
+[node name="cut_blocks" type="CheckButton" parent="ScrollContainer/TabContainer/Game Settings"]
 layout_mode = 2
 tooltip_text = "High Performance impact*"
 theme = SubResource("3")
 text = "*Cut Blocks: "
 
-[node name="glare" type="CheckButton" parent="ScrollContainer/VBox"]
+[node name="glare" type="CheckButton" parent="ScrollContainer/TabContainer/Game Settings"]
 layout_mode = 2
 tooltip_text = "Medium Performance impact*"
 theme = SubResource("3")
 text = "*Glow: "
 
-[node name="saber_tail" type="CheckButton" parent="ScrollContainer/VBox"]
+[node name="saber_tail" type="CheckButton" parent="ScrollContainer/TabContainer/Game Settings"]
 layout_mode = 2
 tooltip_text = "High Performance impact*"
 theme = SubResource("3")
-text = "*Saber Tail: "
+text = "*Saber Trail: "
 
-[node name="show_fps" type="CheckButton" parent="ScrollContainer/VBox"]
+[node name="show_fps" type="CheckButton" parent="ScrollContainer/TabContainer/Game Settings"]
 layout_mode = 2
 theme = SubResource("3")
 text = "Show FPS:"
 
-[node name="show_collisions" type="CheckButton" parent="ScrollContainer/VBox"]
+[node name="show_collisions" type="CheckButton" parent="ScrollContainer/TabContainer/Game Settings"]
 layout_mode = 2
 theme = SubResource("3")
 text = "Show Collision Shapes:"
 
-[node name="bombs_enabled" type="CheckButton" parent="ScrollContainer/VBox"]
+[node name="bombs_enabled" type="CheckButton" parent="ScrollContainer/TabContainer/Game Settings"]
 layout_mode = 2
 theme = SubResource("3")
 text = "Bombs Enabled:"
 
-[node name="SaberThicknessRow" type="HBoxContainer" parent="ScrollContainer/VBox"]
+[node name="UI_VolumeRow" type="HBoxContainer" parent="ScrollContainer/TabContainer/Game Settings"]
 layout_mode = 2
 
-[node name="saber_thickness_label" type="Label" parent="ScrollContainer/VBox/SaberThicknessRow"]
+[node name="ui_volume_label" type="Label" parent="ScrollContainer/TabContainer/Game Settings/UI_VolumeRow"]
+layout_mode = 2
+theme = SubResource("3")
+text = "UI Volume:"
+
+[node name="ui_volume_slider" type="HSlider" parent="ScrollContainer/TabContainer/Game Settings/UI_VolumeRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+max_value = 10.0
+value = 10.0
+
+[node name="disable_map_color" type="CheckButton" parent="ScrollContainer/TabContainer/Game Settings"]
+layout_mode = 2
+theme = SubResource("3")
+text = "Ignore Map's Colors:"
+
+[node name="Saber Settings" type="VBoxContainer" parent="ScrollContainer/TabContainer"]
+custom_minimum_size = Vector2(830, 0)
+layout_mode = 2
+
+[node name="SaberThicknessRow" type="HBoxContainer" parent="ScrollContainer/TabContainer/Saber Settings"]
+layout_mode = 2
+
+[node name="saber_thickness_label" type="Label" parent="ScrollContainer/TabContainer/Saber Settings/SaberThicknessRow"]
 layout_mode = 2
 theme = SubResource("3")
 text = "Saber Thickness: "
 
-[node name="saber_thickness" type="HSlider" parent="ScrollContainer/VBox/SaberThicknessRow"]
+[node name="saber_thickness" type="HSlider" parent="ScrollContainer/TabContainer/Saber Settings/SaberThicknessRow"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 min_value = 10.0
 value = 100.0
 
-[node name="SaberTypeRow" type="HBoxContainer" parent="ScrollContainer/VBox"]
+[node name="SaberTypeRow" type="HBoxContainer" parent="ScrollContainer/TabContainer/Saber Settings"]
 layout_mode = 2
 
-[node name="saber_type_label" type="Label" parent="ScrollContainer/VBox/SaberTypeRow"]
+[node name="saber_type_label" type="Label" parent="ScrollContainer/TabContainer/Saber Settings/SaberTypeRow"]
 layout_mode = 2
 theme = SubResource("3")
 text = "Saber Type:"
 
-[node name="saber" type="OptionButton" parent="ScrollContainer/VBox/SaberTypeRow"]
+[node name="saber" type="OptionButton" parent="ScrollContainer/TabContainer/Saber Settings/SaberTypeRow"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("5")
 theme_override_fonts/font = SubResource("4")
 flat = true
 
-[node name="SaberColorsRow" type="HBoxContainer" parent="ScrollContainer/VBox"]
+[node name="SaberColorsRow" type="HBoxContainer" parent="ScrollContainer/TabContainer/Saber Settings"]
 layout_mode = 2
 
-[node name="left_saber_col_label" type="Label" parent="ScrollContainer/VBox/SaberColorsRow"]
+[node name="left_saber_col_label" type="Label" parent="ScrollContainer/TabContainer/Saber Settings/SaberColorsRow"]
 layout_mode = 2
 theme = SubResource("3")
 text = "Saber Colors: "
 
-[node name="left_saber_col" type="ColorPickerButton" parent="ScrollContainer/VBox/SaberColorsRow"]
+[node name="left_saber_col" type="ColorPickerButton" parent="ScrollContainer/TabContainer/Saber Settings/SaberColorsRow"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Left saber"
@@ -349,7 +379,7 @@ flat = true
 color = Color(1, 0.101961, 0.101961, 1)
 edit_alpha = false
 
-[node name="right_saber_col" type="ColorPickerButton" parent="ScrollContainer/VBox/SaberColorsRow"]
+[node name="right_saber_col" type="ColorPickerButton" parent="ScrollContainer/TabContainer/Saber Settings/SaberColorsRow"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Right saber"
@@ -357,143 +387,123 @@ flat = true
 color = Color(0.101961, 0.101961, 1, 1)
 edit_alpha = false
 
-[node name="UI_VolumeRow" type="HBoxContainer" parent="ScrollContainer/VBox"]
+[node name="left_saber_offset" type="HBoxContainer" parent="ScrollContainer/TabContainer/Saber Settings"]
 layout_mode = 2
 
-[node name="ui_volume_label" type="Label" parent="ScrollContainer/VBox/UI_VolumeRow"]
-layout_mode = 2
-theme = SubResource("3")
-text = "UI Volume:"
-
-[node name="ui_volume_slider" type="HSlider" parent="ScrollContainer/VBox/UI_VolumeRow"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-max_value = 10.0
-value = 10.0
-
-[node name="left_saber_offset" type="HBoxContainer" parent="ScrollContainer/VBox"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/VBox/left_saber_offset"]
+[node name="Label" type="Label" parent="ScrollContainer/TabContainer/Saber Settings/left_saber_offset"]
 layout_mode = 2
 text = "Left Saber Offset:"
 
-[node name="Control" type="Control" parent="ScrollContainer/VBox/left_saber_offset"]
+[node name="Control" type="Control" parent="ScrollContainer/TabContainer/Saber Settings/left_saber_offset"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="poslabel" type="Label" parent="ScrollContainer/VBox/left_saber_offset"]
+[node name="poslabel" type="Label" parent="ScrollContainer/TabContainer/Saber Settings/left_saber_offset"]
 layout_mode = 2
 text = "Position:"
 
-[node name="posx" type="SpinBox" parent="ScrollContainer/VBox/left_saber_offset"]
+[node name="posx" type="SpinBox" parent="ScrollContainer/TabContainer/Saber Settings/left_saber_offset"]
 layout_mode = 2
 min_value = -1.0
 max_value = 1.0
 step = 0.001
 
-[node name="posy" type="SpinBox" parent="ScrollContainer/VBox/left_saber_offset"]
+[node name="posy" type="SpinBox" parent="ScrollContainer/TabContainer/Saber Settings/left_saber_offset"]
 layout_mode = 2
 min_value = -1.0
 max_value = 1.0
 step = 0.001
 
-[node name="posz" type="SpinBox" parent="ScrollContainer/VBox/left_saber_offset"]
+[node name="posz" type="SpinBox" parent="ScrollContainer/TabContainer/Saber Settings/left_saber_offset"]
 layout_mode = 2
 min_value = -1.0
 max_value = 1.0
 step = 0.001
 
-[node name="Control2" type="Control" parent="ScrollContainer/VBox/left_saber_offset"]
+[node name="Control2" type="Control" parent="ScrollContainer/TabContainer/Saber Settings/left_saber_offset"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="rotlabel" type="Label" parent="ScrollContainer/VBox/left_saber_offset"]
+[node name="rotlabel" type="Label" parent="ScrollContainer/TabContainer/Saber Settings/left_saber_offset"]
 layout_mode = 2
 text = "Rotation:"
 
-[node name="rotx" type="SpinBox" parent="ScrollContainer/VBox/left_saber_offset"]
+[node name="rotx" type="SpinBox" parent="ScrollContainer/TabContainer/Saber Settings/left_saber_offset"]
 layout_mode = 2
 min_value = -180.0
 max_value = 180.0
 step = 0.5
 
-[node name="roty" type="SpinBox" parent="ScrollContainer/VBox/left_saber_offset"]
+[node name="roty" type="SpinBox" parent="ScrollContainer/TabContainer/Saber Settings/left_saber_offset"]
 layout_mode = 2
 min_value = -180.0
 max_value = 180.0
 step = 0.5
 
-[node name="rotz" type="SpinBox" parent="ScrollContainer/VBox/left_saber_offset"]
+[node name="rotz" type="SpinBox" parent="ScrollContainer/TabContainer/Saber Settings/left_saber_offset"]
 layout_mode = 2
 min_value = -180.0
 max_value = 180.0
 step = 0.5
 
-[node name="right_saber_offset" type="HBoxContainer" parent="ScrollContainer/VBox"]
+[node name="right_saber_offset" type="HBoxContainer" parent="ScrollContainer/TabContainer/Saber Settings"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/VBox/right_saber_offset"]
+[node name="Label" type="Label" parent="ScrollContainer/TabContainer/Saber Settings/right_saber_offset"]
 layout_mode = 2
 text = "Right Saber Offset:"
 
-[node name="Control" type="Control" parent="ScrollContainer/VBox/right_saber_offset"]
+[node name="Control" type="Control" parent="ScrollContainer/TabContainer/Saber Settings/right_saber_offset"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="poslabel" type="Label" parent="ScrollContainer/VBox/right_saber_offset"]
+[node name="poslabel" type="Label" parent="ScrollContainer/TabContainer/Saber Settings/right_saber_offset"]
 layout_mode = 2
 text = "Position:"
 
-[node name="posx" type="SpinBox" parent="ScrollContainer/VBox/right_saber_offset"]
+[node name="posx" type="SpinBox" parent="ScrollContainer/TabContainer/Saber Settings/right_saber_offset"]
 layout_mode = 2
 min_value = -1.0
 max_value = 1.0
 step = 0.001
 
-[node name="posy" type="SpinBox" parent="ScrollContainer/VBox/right_saber_offset"]
+[node name="posy" type="SpinBox" parent="ScrollContainer/TabContainer/Saber Settings/right_saber_offset"]
 layout_mode = 2
 min_value = -1.0
 max_value = 1.0
 step = 0.001
 
-[node name="posz" type="SpinBox" parent="ScrollContainer/VBox/right_saber_offset"]
+[node name="posz" type="SpinBox" parent="ScrollContainer/TabContainer/Saber Settings/right_saber_offset"]
 layout_mode = 2
 min_value = -1.0
 max_value = 1.0
 step = 0.001
 
-[node name="Control2" type="Control" parent="ScrollContainer/VBox/right_saber_offset"]
+[node name="Control2" type="Control" parent="ScrollContainer/TabContainer/Saber Settings/right_saber_offset"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="rotlabel" type="Label" parent="ScrollContainer/VBox/right_saber_offset"]
+[node name="rotlabel" type="Label" parent="ScrollContainer/TabContainer/Saber Settings/right_saber_offset"]
 layout_mode = 2
 text = "Rotation:"
 
-[node name="rotx" type="SpinBox" parent="ScrollContainer/VBox/right_saber_offset"]
+[node name="rotx" type="SpinBox" parent="ScrollContainer/TabContainer/Saber Settings/right_saber_offset"]
 layout_mode = 2
 min_value = -180.0
 max_value = 180.0
 step = 0.5
 
-[node name="roty" type="SpinBox" parent="ScrollContainer/VBox/right_saber_offset"]
+[node name="roty" type="SpinBox" parent="ScrollContainer/TabContainer/Saber Settings/right_saber_offset"]
 layout_mode = 2
 min_value = -180.0
 max_value = 180.0
 step = 0.5
 
-[node name="rotz" type="SpinBox" parent="ScrollContainer/VBox/right_saber_offset"]
+[node name="rotz" type="SpinBox" parent="ScrollContainer/TabContainer/Saber Settings/right_saber_offset"]
 layout_mode = 2
 min_value = -180.0
 max_value = 180.0
 step = 0.5
-
-[node name="disable_map_color" type="CheckButton" parent="ScrollContainer/VBox"]
-layout_mode = 2
-theme = SubResource("3")
-text = "Ignore Map's Colors:"
 
 [node name="defaults" type="Button" parent="."]
 layout_mode = 0
@@ -526,31 +536,31 @@ scroll_node_path = NodePath("../ScrollContainer")
 wait_time = 5.0
 autostart = true
 
-[connection signal="toggled" from="ScrollContainer/VBox/d_background" to="." method="_on_d_background_toggled"]
-[connection signal="toggled" from="ScrollContainer/VBox/cut_blocks" to="." method="_on_cut_blocks_toggled"]
-[connection signal="toggled" from="ScrollContainer/VBox/glare" to="." method="_on_glare_toggled"]
-[connection signal="toggled" from="ScrollContainer/VBox/saber_tail" to="." method="_on_saber_tail_toggled"]
-[connection signal="toggled" from="ScrollContainer/VBox/show_fps" to="." method="_on_show_fps_toggled"]
-[connection signal="toggled" from="ScrollContainer/VBox/show_collisions" to="." method="_on_show_collisions_toggled"]
-[connection signal="toggled" from="ScrollContainer/VBox/bombs_enabled" to="." method="_on_bombs_enabled_toggled"]
-[connection signal="value_changed" from="ScrollContainer/VBox/SaberThicknessRow/saber_thickness" to="." method="_on_HSlider_value_changed"]
-[connection signal="item_selected" from="ScrollContainer/VBox/SaberTypeRow/saber" to="." method="_on_saber_item_selected"]
-[connection signal="color_changed" from="ScrollContainer/VBox/SaberColorsRow/left_saber_col" to="." method="_on_left_saber_col_color_changed"]
-[connection signal="color_changed" from="ScrollContainer/VBox/SaberColorsRow/right_saber_col" to="." method="_on_right_saber_col_color_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/UI_VolumeRow/ui_volume_slider" to="." method="_on_ui_volume_slider_value_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/left_saber_offset/posx" to="." method="_on_left_saber_offset_value_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/left_saber_offset/posy" to="." method="_on_left_saber_offset_value_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/left_saber_offset/posz" to="." method="_on_left_saber_offset_value_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/left_saber_offset/rotx" to="." method="_on_left_saber_offset_value_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/left_saber_offset/roty" to="." method="_on_left_saber_offset_value_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/left_saber_offset/rotz" to="." method="_on_left_saber_offset_value_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/right_saber_offset/posx" to="." method="_on_right_saber_offset_value_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/right_saber_offset/posy" to="." method="_on_right_saber_offset_value_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/right_saber_offset/posz" to="." method="_on_right_saber_offset_value_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/right_saber_offset/rotx" to="." method="_on_right_saber_offset_value_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/right_saber_offset/roty" to="." method="_on_right_saber_offset_value_changed"]
-[connection signal="value_changed" from="ScrollContainer/VBox/right_saber_offset/rotz" to="." method="_on_right_saber_offset_value_changed"]
-[connection signal="toggled" from="ScrollContainer/VBox/disable_map_color" to="." method="_on_disable_map_color_toggled"]
+[connection signal="toggled" from="ScrollContainer/TabContainer/Game Settings/d_background" to="." method="_on_d_background_toggled"]
+[connection signal="toggled" from="ScrollContainer/TabContainer/Game Settings/cut_blocks" to="." method="_on_cut_blocks_toggled"]
+[connection signal="toggled" from="ScrollContainer/TabContainer/Game Settings/glare" to="." method="_on_glare_toggled"]
+[connection signal="toggled" from="ScrollContainer/TabContainer/Game Settings/saber_tail" to="." method="_on_saber_tail_toggled"]
+[connection signal="toggled" from="ScrollContainer/TabContainer/Game Settings/show_fps" to="." method="_on_show_fps_toggled"]
+[connection signal="toggled" from="ScrollContainer/TabContainer/Game Settings/show_collisions" to="." method="_on_show_collisions_toggled"]
+[connection signal="toggled" from="ScrollContainer/TabContainer/Game Settings/bombs_enabled" to="." method="_on_bombs_enabled_toggled"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Game Settings/UI_VolumeRow/ui_volume_slider" to="." method="_on_ui_volume_slider_value_changed"]
+[connection signal="toggled" from="ScrollContainer/TabContainer/Game Settings/disable_map_color" to="." method="_on_disable_map_color_toggled"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/SaberThicknessRow/saber_thickness" to="." method="_on_HSlider_value_changed"]
+[connection signal="item_selected" from="ScrollContainer/TabContainer/Saber Settings/SaberTypeRow/saber" to="." method="_on_saber_item_selected"]
+[connection signal="color_changed" from="ScrollContainer/TabContainer/Saber Settings/SaberColorsRow/left_saber_col" to="." method="_on_left_saber_col_color_changed"]
+[connection signal="color_changed" from="ScrollContainer/TabContainer/Saber Settings/SaberColorsRow/right_saber_col" to="." method="_on_right_saber_col_color_changed"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/left_saber_offset/posx" to="." method="_on_left_saber_offset_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/left_saber_offset/posy" to="." method="_on_left_saber_offset_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/left_saber_offset/posz" to="." method="_on_left_saber_offset_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/left_saber_offset/rotx" to="." method="_on_left_saber_offset_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/left_saber_offset/roty" to="." method="_on_left_saber_offset_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/left_saber_offset/rotz" to="." method="_on_left_saber_offset_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/right_saber_offset/posx" to="." method="_on_right_saber_offset_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/right_saber_offset/posy" to="." method="_on_right_saber_offset_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/right_saber_offset/posz" to="." method="_on_right_saber_offset_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/right_saber_offset/rotx" to="." method="_on_right_saber_offset_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/right_saber_offset/roty" to="." method="_on_right_saber_offset_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/TabContainer/Saber Settings/right_saber_offset/rotz" to="." method="_on_right_saber_offset_value_changed"]
 [connection signal="button_up" from="defaults" to="." method="_on_Button_button_up"]
 [connection signal="pressed" from="apply" to="." method="_on_apply_pressed"]
 [connection signal="timeout" from="wipe_check" to="." method="_on_wipe_check_timeout"]
